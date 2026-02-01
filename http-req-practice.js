@@ -2,7 +2,8 @@ import { error } from 'console';
 import readline from 'readline';
 
 // Create readline interface
-const rl = readline.createInterface({
+const rl = readline.createI
+erface({
     input: process.stdin,
     output: process.stdout
 });
@@ -56,6 +57,14 @@ function displayPostStatistics() {
 // Option 3: Display API performance statistics
 function displayApiPerformance() {
     // TODO: Implement this function
+    try {
+        if (posts.length > 0) {
+            console.log("There is a requests in the array ")
+        }
+        console.log("f#@@@#@#@k you Itamar")
+    } catch (error) {
+        console.log("The array is empty from requests ")
+    }
 }
 
 // Main function to run the application
