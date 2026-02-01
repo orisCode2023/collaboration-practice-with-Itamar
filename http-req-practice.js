@@ -38,7 +38,29 @@ async function fetchPosts() {
     // 3. Make the fetch request
     // 4. Track end time and calculate duration
     // 5. Store the duration in apiCallTimes array
+
+    console.log("Loading posts...")
+    const before = Date.now()
+    console.log(before)
+    const url = "https://jsonplaceholder.typicode.com/posts?_limit=10";
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`Response status: ${response.status}`);
+        }
+        
+        posts.push(await response.json())
+        console.log(posts);
+        const after = Date.now()
+        console.log(after)
+        const duration = after - before
+        console.log(`The duration time is ${duration} `)
+        apiCallTimes.push(duration)
+    } catch (error) {
+        console.error(error.message);
+    }
 }
+
 
 // Option 2: Display post statistics
 function displayPostStatistics() {
